@@ -20,7 +20,7 @@ $(document).ready(function () {
       beforeSend: function (xhrObj) {
         xhrObj.setRequestHeader('Origin', 'https://keen-payne-a47da8.netlify.com');
         xhrObj.setRequestHeader('Content-Type', 'application/json');
-        xhrObj.setRequestHeader('Authorization', 'Basic cm1hbGxpY2s6SW5kaWFAIyMxMjM6YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFh');
+        xhrObj.setRequestHeader('Authorization', 'Basic dGVzdGRldmNvZGVAZ21haWwuY29tOnRlc3RkZXZjb2RlQGdtYWlsLmNvbQ==');
       },
       url: buildOauthURI(),
       type: 'POST',
