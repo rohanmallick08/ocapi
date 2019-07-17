@@ -19,7 +19,7 @@ $(document).ready(function () {
     $.ajax({
       beforeSend: function (xhrObj) {
         xhrObj.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhrObj.setRequestHeader('Authorization', 'Basic' + generateEncodedBaseToken());
+        xhrObj.setRequestHeader('Authorization', 'Basic cm1hbGxpY2s6SW5kaWFAIyMxMjM6YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFh');
       },
       url: buildOauthURI(),
       type: 'POST',
@@ -28,10 +28,6 @@ $(document).ready(function () {
     // success
     .done(function (response) {
       console.log(JSON.stringify(response));
-    })
-    // failed
-    .fail(function (xhr, textStatus) {
-      alert(textStatus);
     });
   });
 });
