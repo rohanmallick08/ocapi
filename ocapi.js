@@ -17,14 +17,13 @@ function generateEncodedBaseToken() {
 $(document).ready(function () {
   $('.fetch-beare').on('click', function () {
     $.ajax({
-      dataType: 'json',
+      beforeSend: function (xhrObj) {
+        xhrObj.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhrObj.setRequestHeader('Authorization', 'Basic' + generateEncodedBaseToken());
+      },
       url: buildOauthURI(),
       type: 'POST',
-      data: 'grant_type=urn:demandware:params:oauth:grant-type:client-id:dwsid:dwsecuretoken',
-      headers: {
-        Authorization: 'Basic' + generateEncodedBaseToken(),
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
+      data: 'grant_type=urn:demandware:params:oauth:grant-type:client-id:dwsid:dwsecuretoken'
     })
     // success
     .done(function (response) {
@@ -36,6 +35,3 @@ $(document).ready(function () {
     });
   });
 });
-
-
-
