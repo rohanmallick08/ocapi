@@ -3,7 +3,7 @@ var _config = {
   client_id: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
   user_name: 'rmallick',
   password: 'India@##123',
-  oauth_host: 'https://dev10-web-cosmoprof.demandware.net/dw/oauth2/access_token'
+  oauth_host: 'https://dev10-web-cosmoprof.demandware.net/s/CosmoProf/dw/shop/v18_8/customers/auth'
 };
 
 function buildOauthURI() {
@@ -18,12 +18,13 @@ $(document).ready(function () {
   $('.fetch-beare').on('click', function () {
     $.ajax({
       beforeSend: function (xhrObj) {
+        xhrObj.setRequestHeader('Origin', 'https://keen-payne-a47da8.netlify.com');
         xhrObj.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhrObj.setRequestHeader('Authorization', 'Basic cm1hbGxpY2s6SW5kaWFAIyMxMjM6YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFh');
       },
       url: buildOauthURI(),
       type: 'POST',
-      data: 'grant_type=urn:demandware:params:oauth:grant-type:client-id:dwsid:dwsecuretoken'
+      data: JSON.stringify({ type: 'credentials' })
     })
     // success
     .done(function (response) {
